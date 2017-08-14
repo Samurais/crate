@@ -210,6 +210,9 @@ Changes
  - Added validation that ``ORDER BY`` symbols are included in the ``SELECT``
    list when ``DISTINCT`` is used.
 
+ - The use of the cluster name as a folder within ``path.data`` directory
+   has been deprecated and will not be supported in future versions of CrateDB.
+
 Fixes
 -----
 
@@ -299,3 +302,29 @@ sets both the minimum and maximum memory to allocate, and should be set to
 whatever your previous ``CRATE_MAX_MEM`` was set to.
 
 .. _enterprise edition: https://crate.io/enterprise-edition/
+
+Cluster name in path data
+-------------------------
+
+In previous versions, the cluster name was a folder inside the ``path.data``
+directory. Now, the data is written directly in the ``path.data`` directory.
+If the directory still contains a folder whose name is the same as the cluster
+name, it is read at startup. This behaviour is deprecated and will be removed
+in future versions of CrateDB. To resolve this, you will need to move node
+data one level upwards. E.g.:
+
+```
+$PATH_DATA_DIR/$CLUSTER_NAME/nodes
+```
+
+needs to be changed to
+
+```
+$PATH_DATA_DIR/nodes
+```
+
+.. NOTE::
+
+   When multiple clusters share the same data directory you will need to add
+   the cluster name to the data path. Otherwise there will be the risk of
+   overwriting data.
