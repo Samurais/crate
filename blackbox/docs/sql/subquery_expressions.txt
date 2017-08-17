@@ -33,7 +33,7 @@ rows)::
     ... where dept_id in (select id from departments where name = 'Austria')
     ... order by name, surname;
 
-The result of the ``IN`` construct yields to ``null`` if ...:
+The result of the ``IN`` construct yields to ``null`` if ...
 
 - the left-hand expression evaluates to ``null``.
 
@@ -66,7 +66,7 @@ subquery returns no rows::
     ... where population > any (select information['population'] from locations)
     ... order by population, name;
 
-The result of the ``ANY`` construct yields ``null`` if ...:
+The result of the ``ANY`` construct yields ``null`` if ...
 
 - either the expression or the array is ``null``
 
