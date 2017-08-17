@@ -471,7 +471,6 @@ def test_suite():
                'sql/table_functions.txt',
                'sql/system.txt',
                'sql/queries.txt',
-               'sql/subquery_expressions.txt',
                'protocols/postgres.txt'):
         s = docsuite('../../' + fn, parser=crash_parser,
                      setUp=setUpLocationsAndQuotes,
@@ -485,7 +484,8 @@ def test_suite():
                      tearDown=tearDownCountries)
         s.layer = crate_layer
         docs_suite.addTest(s)
-    for fn in ('sql/joins.txt',):
+    for fn in ('sql/joins.txt',
+               'sql/subquery_expressions.txt',):
         path = os.path.join('..', '..', fn)
         s = docsuite(path,
                      parser=crash_parser,
