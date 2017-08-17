@@ -32,13 +32,15 @@ rows)::
     cr> select name, surname, sex from employees
     ... where dept_id in (select id from departments where name = 'Marketing')
     ... order by name, surname;
-    +-------------------+
-    | name              |
-    +-------------------+
-    | Argabuthon        |
-    | Arkintoofle Minor |
-    +-------------------+
-    SELECT 2 rows in set (... sec)
+    +--------+----------+-----+
+    | name   | surname  | sex |
+    +--------+----------+-----+
+    | David  | Bowe     | M   |
+    | David  | Limb     | M   |
+    | Sarrah | Mcmillan | F   |
+    | Smith  | Clark    | M   |
+    +--------+----------+-----+
+    SELECT 4 rows in set (... sec)
 
 The result of the ``IN`` construct yields to ``null`` if ...
 
