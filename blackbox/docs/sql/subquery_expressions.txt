@@ -32,6 +32,13 @@ rows)::
     cr> select name, surname, sex from employees
     ... where dept_id in (select id from departments where name = 'Austria')
     ... order by name, surname;
+    +-------------------+
+    | name              |
+    +-------------------+
+    | Argabuthon        |
+    | Arkintoofle Minor |
+    +-------------------+
+    SELECT 2 rows in set (... sec)
 
 The result of the ``IN`` construct yields to ``null`` if ...
 
@@ -65,6 +72,13 @@ subquery returns no rows::
     cr> select name, population from countries
     ... where population > any (select information['population'] from locations)
     ... order by population, name;
+    +-------------------+
+    | name              |
+    +-------------------+
+    | Argabuthon        |
+    | Arkintoofle Minor |
+    +-------------------+
+    SELECT 2 rows in set (... sec)
 
 The result of the ``ANY`` construct yields ``null`` if ...
 

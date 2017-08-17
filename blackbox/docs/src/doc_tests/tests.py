@@ -471,6 +471,8 @@ def test_suite():
                'sql/table_functions.txt',
                'sql/system.txt',
                'sql/queries.txt',
+               'sql/operators.txt',
+               'sql/subquery_expressions.txt',
                'protocols/postgres.txt'):
         s = docsuite('../../' + fn, parser=crash_parser,
                      setUp=setUpLocationsAndQuotes,
