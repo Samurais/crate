@@ -392,6 +392,7 @@ def setUpEmpDeptAndColourArticlesAndGeo(test):
     setUpEmployeesAndDepartments(test)
     setUpColorsAndArticles(test)
     setUpPhotosAndCountries(test)
+    setUpLocations(test)
 
 
 def tearDownEmpDeptAndColourArticlesAndGeo(test):
