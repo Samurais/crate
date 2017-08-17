@@ -30,7 +30,7 @@ Returns ``false`` otherwise (including the case where the subquery returns no
 rows)::
 
     cr> select name, surname, sex from employees
-    ... where dept_id in (select id from departments where name = 'Austria')
+    ... where dept_id in (select id from departments where name = 'Marketing')
     ... order by name, surname;
     +-------------------+
     | name              |
